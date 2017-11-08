@@ -16,7 +16,8 @@ namespace mantis_tests
         protected string baseURL;
 
         public RegistrationHelper Registration { get; set; }
-
+        public FtpHelper Ftp { get; set; }
+        public JamesHelper James { get; set; }
         private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
         private ApplicationManager()
@@ -31,9 +32,10 @@ namespace mantis_tests
             //verificationErrors = new StringBuilder();
             Registration = new RegistrationHelper(this);
             Ftp = new FtpHelper(this);
+            James = new JamesHelper(this);
         }
 
-        public FtpHelper Ftp { get; set; }
+
 
         ~ApplicationManager()
         {
